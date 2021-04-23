@@ -33,7 +33,7 @@ const Template = (args) => {
         }}
         onSubmit={() => {}}
       >
-        {({ values }) => (
+        {({ values, setFieldValue }) => (
           <Form>
             <Field {...args} component={SelectField} />
           </Form>
@@ -45,15 +45,46 @@ const Template = (args) => {
 
 export const SinglePick = Template.bind();
 
+class exampleForm {
+  constructor(field) {
+    this.field = field;
+    this.fieldValue = this.field.value;
+  }
+  setFieldValue(fieldName, fieldValue) {
+    this.fieldValue = fieldValue;
+    return this.field.updateValue(fieldValue);
+  }
+}
+
+class exampleField {
+  constructor(value) {
+    this.value = value;
+    this.name = 'testField';
+  }
+  updateValue(value) {
+    return (this.value = value);
+  }
+}
+
+let singlePickFieldInstance = new exampleField('');
+let singlePickFormInstance = new exampleForm(singlePickFieldInstance);
+
 SinglePick.args = {
-  name: 'testField',
+  id: 'testField',
   options: options,
   isMulti: false,
+  form: singlePickFormInstance,
+  field: singlePickFieldInstance,
 };
 
 export const MultiPick = Template.bind();
 
+let multiPickFieldInstance = new exampleField([]);
+let multiPickFormInstance = new exampleForm(multiPickFieldInstance);
+
 MultiPick.args = {
   ...SinglePick.args,
   isMulti: true,
+  form: multiPickFormInstance,
+  field: multiPickFieldInstance,
 };
