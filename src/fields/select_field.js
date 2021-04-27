@@ -11,29 +11,19 @@ export const SelectField = ({
   className,
   id,
   isDisabled,
+  optionValue,
+  optionLabel,
+  ...props
 }) => {
-  const [selectedValue, setSelectedValue] = useState();
-  function selectedValueFromOptions(selected) {
-    if (isMulti) {
-      return (
-        options.filter((option) => field.value?.includes(option.value)) || []
-      );
-    } else {
-      return options.find((option) => option.value === field.value) || '';
-    }
-  }
-
   return (
     <div className="select-field-container">
       <Select
         options={options}
-        value={selectedValue}
         onChange={(option) => {
           const selectedValue = isMulti
-            ? option?.map((item) => item.value)
-            : option.value;
+            ? option?.map((item) => item[optionValue])
+            : option[optionValue];
           form.setFieldValue(field.name, selectedValue);
-          setSelectedValue(selectedValueFromOptions(option));
           if (onChange) {
             onChange(option);
           }
@@ -41,9 +31,14 @@ export const SelectField = ({
         onBlur={field.onBlur}
         isMulti={isMulti || false}
         className={className || 'select-field'}
-        closeMenuOnSelect={!isMulti}
+        closeMenuOnSelect={props.closeMenuOnSelect || !isMulti}
         isDisabled={isDisabled}
         inputId={id}
+        optionValue={optionValue}
+        optionLabel={optionLabel}
+        getOptionValue={(option) => option[optionValue]}
+        getOptionLabel={(option) => option[optionLabel]}
+        {...props}
       />
     </div>
   );
@@ -58,6 +53,8 @@ SelectField.defaultProps = {
   className: null,
   id: null,
   isDisabled: false,
+  optionValue: 'value',
+  optionLabel: 'label',
 };
 
 SelectField.propTypes = {
@@ -69,6 +66,8 @@ SelectField.propTypes = {
   className: PropTypes.string,
   id: PropTypes.string,
   isDisabled: PropTypes.bool,
+  optionValue: PropTypes.string,
+  optionLabel: PropTypes.string,
 };
 
 export default SelectField;

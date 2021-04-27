@@ -88,3 +88,10 @@ MultiPick.args = {
   form: multiPickFormInstance,
   field: multiPickFieldInstance,
 };
+
+export const AdditionalProps = Template.bind();
+
+AdditionalProps.args = {
+  ...SinglePick.args,
+  inputValue: 'Custom Input Value',
+};
