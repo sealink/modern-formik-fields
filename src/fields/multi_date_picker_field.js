@@ -19,6 +19,7 @@ export const MultiDatePickerField = ({
   disabled,
   isOutsideRange,
   sourceDateFormat,
+  ...props
 }) => {
   const [focused, setFocused] = useState(null);
   const [startDate, setStartDate] = useState();
@@ -68,6 +69,7 @@ export const MultiDatePickerField = ({
         disabled={disabled}
         hideKeyboardShortcutsPanel={hideKeyboardShortcutsPanel}
         numberOfMonths={numberOfMonths}
+        {...props}
       />
     </div>
   );

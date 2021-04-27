@@ -18,6 +18,7 @@ export const SingleDatePickerField = ({
   renderDayContents,
   isOutsideRange,
   sourceDateFormat,
+  ...props
 }) => {
   const [focused, setFocused] = useState(false);
   const [date, setDate] = useState();
@@ -50,6 +51,7 @@ export const SingleDatePickerField = ({
           }
         }}
         isOutsideRange={isOutsideRange}
+        {...props}
       />
     </div>
   );
