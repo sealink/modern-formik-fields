@@ -5,6 +5,7 @@ import 'react-dates/lib/css/_datepicker.css';
 import { SingleDatePicker } from 'react-dates';
 import moment from 'moment';
 import { isFunction } from 'lodash';
+import { RenderMonthElement } from '../utils/react_dates_month_year_selector';
 
 export const SingleDatePickerField = ({
   numberOfMonths,
@@ -18,7 +19,11 @@ export const SingleDatePickerField = ({
   renderDayContents,
   isOutsideRange,
   sourceDateFormat,
-  ...props
+  showClearDate,
+  startYear,
+  endYear,
+  renderMonthElement,
+  ...otherProps
 }) => {
   const [focused, setFocused] = useState(false);
   const [date, setDate] = useState();
@@ -27,6 +32,19 @@ export const SingleDatePickerField = ({
     setDate(field.value ? moment(field.value, sourceDateFormat) : null);
   }, [field]);
 
+  let monthElement = null;
+  if (isFunction(renderMonthElement)) {
+    monthElement = function ({ month, onMonthSelect, onYearSelect }) {
+      return renderMonthElement({
+        month,
+        onMonthSelect,
+        onYearSelect,
+        startYear,
+        endYear,
+      });
+    };
+  }
+
   return (
     <div className="single-date-picker-field-container">
       <SingleDatePicker
@@ -34,10 +52,12 @@ export const SingleDatePickerField = ({
         numberOfMonths={numberOfMonths}
         date={date}
         onDateChange={(option) => {
-          form.setFieldValue(field.name, option.format(sourceDateFormat));
-          setDate(option);
-          if (onDateChange) {
-            onDateChange(field.name, option);
+          if (option instanceof moment || option === null) {
+            form.setFieldValue(field.name, option?.format(sourceDateFormat));
+            setDate(option);
+            if (onDateChange) {
+              onDateChange(field.name, option);
+            }
           }
         }}
         onFocusChange={(e) => setFocused(e.focused)}
@@ -51,7 +71,10 @@ export const SingleDatePickerField = ({
           }
         }}
         isOutsideRange={isOutsideRange}
-        {...props}
+        renderMonthElement={monthElement}
+        small={true}
+        showClearDate={showClearDate}
+        {...otherProps}
       />
     </div>
   );
@@ -63,12 +86,16 @@ SingleDatePickerField.defaultProps = {
   numberOfMonths: 1,
   field: null,
   form: null,
-  onDatesChange: null,
+  onDateChange: null,
   hideKeyboardShortcutsPanel: false,
   id: null,
   disabled: false,
   renderDayContents: (date) => date.format('D'),
   isOutsideRange: (date) => moment(date).isBefore(),
+  showClearDate: true,
+  startYear: moment().year(),
+  endYear: moment().year() + 10,
+  renderMonthElement: RenderMonthElement,
 };
 
 SingleDatePickerField.propTypes = {
@@ -77,12 +104,16 @@ SingleDatePickerField.propTypes = {
   numberOfMonths: PropTypes.number,
   field: PropTypes.object.isRequired,
   form: PropTypes.object.isRequired,
-  onDatesChange: PropTypes.func,
+  onDateChange: PropTypes.func,
   hideKeyboardShortcutsPanel: PropTypes.bool,
   id: PropTypes.string.isRequired,
   disabled: PropTypes.bool,
   renderDayContents: PropTypes.func,
   isOutsideRange: PropTypes.func,
+  showClearDate: PropTypes.bool,
+  startYear: PropTypes.number,
+  endYear: PropTypes.number,
+  renderMonthElement: PropTypes.func,
 };
 
 export default SingleDatePickerField;

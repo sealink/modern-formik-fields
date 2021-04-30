@@ -5,6 +5,7 @@ import 'react-dates/lib/css/_datepicker.css';
 import { DateRangePicker } from 'react-dates';
 import moment from 'moment';
 import { isFunction } from 'lodash';
+import { RenderMonthElement } from '../utils/react_dates_month_year_selector';
 
 export const MultiDatePickerField = ({
   numberOfMonths,
@@ -19,6 +20,10 @@ export const MultiDatePickerField = ({
   disabled,
   isOutsideRange,
   sourceDateFormat,
+  showClearDates,
+  startYear,
+  endYear,
+  renderMonthElement,
   ...props
 }) => {
   const [focused, setFocused] = useState(null);
@@ -37,6 +42,19 @@ export const MultiDatePickerField = ({
         : null
     );
   }, [field]);
+
+  let monthElement = null;
+  if (isFunction(renderMonthElement)) {
+    monthElement = function ({ month, onMonthSelect, onYearSelect }) {
+      return renderMonthElement({
+        month,
+        onMonthSelect,
+        onYearSelect,
+        startYear,
+        endYear,
+      });
+    };
+  }
 
   return (
     <div className="multi-date-picker-field-container">
@@ -69,6 +87,9 @@ export const MultiDatePickerField = ({
         disabled={disabled}
         hideKeyboardShortcutsPanel={hideKeyboardShortcutsPanel}
         numberOfMonths={numberOfMonths}
+        renderMonthElement={monthElement}
+        small={true}
+        showClearDates={showClearDates}
         {...props}
       />
     </div>
@@ -86,6 +107,10 @@ MultiDatePickerField.defaultProps = {
   id: null,
   disabled: false,
   isOutsideRange: (date) => moment(date).isBefore(),
+  showClearDates: true,
+  startYear: moment().year(),
+  endYear: moment().year() + 10,
+  renderMonthElement: RenderMonthElement,
 };
 
 MultiDatePickerField.propTypes = {
@@ -101,6 +126,10 @@ MultiDatePickerField.propTypes = {
   endDateId: PropTypes.string,
   disabled: PropTypes.bool,
   isOutsideRange: PropTypes.func,
+  showClearDates: PropTypes.bool,
+  startYear: PropTypes.number,
+  endYear: PropTypes.number,
+  renderMonthElement: PropTypes.func,
 };
 
 export default MultiDatePickerField;
