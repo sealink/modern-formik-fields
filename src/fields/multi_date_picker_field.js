@@ -43,6 +43,8 @@ export const MultiDatePickerField = ({
     );
   }, [field]);
 
+  // If react-dates receives a null-returning function for renderMonthElement it will just render
+  // an empty field, we want to pass a null literal to ensure we get the default behaviour
   let monthElement = null;
   if (isFunction(renderMonthElement)) {
     monthElement = function ({ month, onMonthSelect, onYearSelect }) {
