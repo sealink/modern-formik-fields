@@ -23,6 +23,8 @@ export const SingleDatePickerField = ({
   startYear,
   endYear,
   renderMonthElement,
+  children,
+  value,
   ...otherProps
 }) => {
   const [focused, setFocused] = useState(false);
@@ -36,15 +38,14 @@ export const SingleDatePickerField = ({
   // an empty field, we want to pass a null literal to ensure we get the default behaviour
   let monthElement = null;
   if (isFunction(renderMonthElement)) {
-    monthElement = function ({ month, onMonthSelect, onYearSelect }) {
-      return renderMonthElement({
+    monthElement = ({ month, onMonthSelect, onYearSelect }) =>
+      renderMonthElement({
         month,
         onMonthSelect,
         onYearSelect,
         startYear,
         endYear,
       });
-    };
   }
 
   return (
@@ -76,6 +77,7 @@ export const SingleDatePickerField = ({
         renderMonthElement={monthElement}
         small={true}
         showClearDate={showClearDate}
+        children={children}
         {...otherProps}
       />
     </div>
@@ -98,6 +100,8 @@ SingleDatePickerField.defaultProps = {
   startYear: moment().year(),
   endYear: moment().year() + 10,
   renderMonthElement: RenderMonthElement,
+  children: [],
+  value: null,
 };
 
 SingleDatePickerField.propTypes = {
@@ -116,6 +120,8 @@ SingleDatePickerField.propTypes = {
   startYear: PropTypes.number,
   endYear: PropTypes.number,
   renderMonthElement: PropTypes.func,
+  children: PropTypes.array,
+  value: PropTypes.string,
 };
 
 export default SingleDatePickerField;
