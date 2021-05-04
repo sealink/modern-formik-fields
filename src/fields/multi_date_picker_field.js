@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import 'react-dates/initialize';
 import 'react-dates/lib/css/_datepicker.css';
+import '../stylesheets/modern-formik-fields.css';
 import { DateRangePicker } from 'react-dates';
 import moment from 'moment';
 import { isFunction } from 'lodash';
@@ -61,43 +62,45 @@ export const MultiDatePickerField = ({
   }
 
   return (
-    <div className="multi-date-picker-field-container">
-      <DateRangePicker
-        id={id}
-        focusedInput={focused}
-        onFocusChange={(focusedInput) => {
-          setFocused(focusedInput);
-        }}
-        onDatesChange={(dates) => {
-          setStartDate(dates.startDate);
-          setEndDate(dates.endDate);
-          form.setFieldValue(field.name, {
-            startDate: dates.startDate?.format(sourceDateFormat),
-            endDate: dates.endDate?.format(sourceDateFormat),
-          });
-          {
-            if (isFunction(onDatesChange)) {
-              onDatesChange(dates);
+    <>
+      <div class="multi-date-picker-field-container">
+        <DateRangePicker
+          id={id}
+          focusedInput={focused}
+          onFocusChange={(focusedInput) => {
+            setFocused(focusedInput);
+          }}
+          onDatesChange={(dates) => {
+            setStartDate(dates.startDate);
+            setEndDate(dates.endDate);
+            form.setFieldValue(field.name, {
+              startDate: dates.startDate?.format(sourceDateFormat),
+              endDate: dates.endDate?.format(sourceDateFormat),
+            });
+            {
+              if (isFunction(onDatesChange)) {
+                onDatesChange(dates);
+              }
             }
-          }
-        }}
-        startDateId={startDateId || `${id}-start-date`}
-        startDate={startDate}
-        endDateId={endDateId || `${id}-end-date`}
-        endDate={endDate}
-        enableOutsideDays={true}
-        displayFormat={displayFormat}
-        isOutsideRange={isOutsideRange}
-        disabled={disabled}
-        hideKeyboardShortcutsPanel={hideKeyboardShortcutsPanel}
-        numberOfMonths={numberOfMonths}
-        renderMonthElement={monthElement}
-        small={true}
-        showClearDates={showClearDates}
-        children={children}
-        {...props}
-      />
-    </div>
+          }}
+          startDateId={startDateId || `${id}-start-date`}
+          startDate={startDate}
+          endDateId={endDateId || `${id}-end-date`}
+          endDate={endDate}
+          enableOutsideDays={true}
+          displayFormat={displayFormat}
+          isOutsideRange={isOutsideRange}
+          disabled={disabled}
+          hideKeyboardShortcutsPanel={hideKeyboardShortcutsPanel}
+          numberOfMonths={numberOfMonths}
+          renderMonthElement={monthElement}
+          small={true}
+          showClearDates={showClearDates}
+          children={children}
+          {...props}
+        />
+      </div>
+    </>
   );
 };
 

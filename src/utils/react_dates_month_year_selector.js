@@ -2,6 +2,7 @@ import React from 'react';
 import moment from 'moment';
 import Select from 'react-select';
 import { find } from 'lodash';
+import classNames from 'classnames';
 
 export const RenderMonthElement = ({
   month,
@@ -33,7 +34,7 @@ export const RenderMonthElement = ({
   });
 
   return (
-    <div className="month_year_select">
+    <div class="month_year_select">
       <Select
         options={monthOptions}
         className="month_select"

@@ -1,0 +1,61 @@
+.DateInput_input {
+  box-sizing: border-box;
+}
+
+.month_year_select {
+  display: flex;
+  justify-content: center;
+}
+
+.single-date-picker-field-container
+  .DayPickerNavigation_leftButton__horizontalDefault {
+  left: 5px;
+}
+
+.single-date-picker-field-container
+  .DayPickerNavigation_rightButton__horizontalDefault {
+  right: 5px;
+}
+
+.single-date-picker-field-container .CalendarMonth_caption {
+  padding-top: 18px;
+}
+
+.single-date-picker-field-container .CalendarMonth_table {
+  padding-top: 4px;
+}
+
+.multi-date-picker-field-container
+  .DayPickerNavigation_leftButton__horizontalDefault {
+  left: 5px;
+}
+
+.multi-date-picker-field-container
+  .DayPickerNavigation_rightButton__horizontalDefault {
+  right: 5px;
+}
+
+.multi-date-picker-field-container .CalendarMonth_caption {
+  padding-top: 18px;
+}
+
+.multi-date-picker-field-container .CalendarMonth_table {
+  padding-top: 4px;
+}
+
+.single-date-picker-field-container .DayPicker_weekHeader {
+  top: 52px;
+}
+
+.multi-date-picker-field-container .DayPicker_weekHeader {
+  top: 52px;
+}
+
+.month_select,
+.year_select {
+  font-size: small;
+  width: 110px;
+  height: 20px;
+  padding-left: 2px;
+  padding-right: 2px;
+}

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import 'react-dates/initialize';
 import 'react-dates/lib/css/_datepicker.css';
+import '../stylesheets/modern-formik-fields.css';
 import { SingleDatePicker } from 'react-dates';
 import moment from 'moment';
 import { isFunction } from 'lodash';
@@ -49,38 +50,40 @@ export const SingleDatePickerField = ({
   }
 
   return (
-    <div className="single-date-picker-field-container">
-      <SingleDatePicker
-        id={id}
-        numberOfMonths={numberOfMonths}
-        date={date}
-        onDateChange={(option) => {
-          if (option instanceof moment || option === null) {
-            form.setFieldValue(field.name, option?.format(sourceDateFormat));
-            setDate(option);
-            if (onDateChange) {
-              onDateChange(field.name, option);
+    <>
+      <div class="single-date-picker-field-container">
+        <SingleDatePicker
+          id={id}
+          numberOfMonths={numberOfMonths}
+          date={date}
+          onDateChange={(option) => {
+            if (option instanceof moment || option === null) {
+              form.setFieldValue(field.name, option?.format(sourceDateFormat));
+              setDate(option);
+              if (onDateChange) {
+                onDateChange(field.name, option);
+              }
             }
-          }
-        }}
-        onFocusChange={(e) => setFocused(e.focused)}
-        focused={focused}
-        displayFormat={displayFormat}
-        hideKeyboardShortcutsPanel={hideKeyboardShortcutsPanel}
-        disabled={disabled}
-        renderDayContents={(val, options) => {
-          if (isFunction(renderDayContents)) {
-            return renderDayContents(val);
-          }
-        }}
-        isOutsideRange={isOutsideRange}
-        renderMonthElement={monthElement}
-        small={true}
-        showClearDate={showClearDate}
-        children={children}
-        {...otherProps}
-      />
-    </div>
+          }}
+          onFocusChange={(e) => setFocused(e.focused)}
+          focused={focused}
+          displayFormat={displayFormat}
+          hideKeyboardShortcutsPanel={hideKeyboardShortcutsPanel}
+          disabled={disabled}
+          renderDayContents={(val, options) => {
+            if (isFunction(renderDayContents)) {
+              return renderDayContents(val);
+            }
+          }}
+          isOutsideRange={isOutsideRange}
+          renderMonthElement={monthElement}
+          small={true}
+          showClearDate={showClearDate}
+          children={children}
+          {...otherProps}
+        />
+      </div>
+    </>
   );
 };
 
