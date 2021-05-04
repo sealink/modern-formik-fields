@@ -2,7 +2,6 @@ import React from 'react';
 import moment from 'moment';
 import Select from 'react-select';
 import { find } from 'lodash';
-import classNames from 'classnames';
 
 export const RenderMonthElement = ({
   month,
