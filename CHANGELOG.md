@@ -1,6 +1,6 @@
 # Modern Formik Fields
 
-## 1.0.1 Unreleased
+## 1.0.1
 
 - [TT-9305] Fixed webpack issues, added month/year selects to react-dates fields
 
