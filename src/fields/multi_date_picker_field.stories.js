@@ -1,6 +1,7 @@
 import React from 'react';
 import { MultiDatePickerField } from './index';
 import { Formik, Form, Field, ErrorMessage, useField } from 'formik';
+import moment from 'moment';
 
 export default {
   title: 'Fields/MultiDatePickerField',
@@ -38,13 +39,30 @@ Default.args = {
   },
   form: new exampleForm(),
   id: 'example-datepicker',
-  labelName: 'Example Datepicker',
 };
 
 export const AllowPastDates = Template.bind();
 
 AllowPastDates.args = {
   ...Default.args,
-  labelName: 'Example Datepicker with all dates allowed',
   isOutsideRange: () => false,
+  id: 'allow-past-dates',
+};
+
+export const PastDatesWithCustomStartEndYears = Template.bind();
+
+PastDatesWithCustomStartEndYears.args = {
+  ...Default.args,
+  isOutsideRange: () => false,
+  id: 'past-dates-custom-start-end-years',
+  startYear: 1900,
+  endYear: moment().year(),
+};
+
+export const WithoutMonthYearSelects = Template.bind();
+
+WithoutMonthYearSelects.args = {
+  ...Default.args,
+  id: 'without-month-year-selects',
+  renderMonthElement: null,
 };

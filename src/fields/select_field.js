@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Select from 'react-select';
 import PropTypes from 'prop-types';
+import '../stylesheets/modern-formik-fields.css';
 
 export const SelectField = ({
   options,
@@ -16,31 +17,33 @@ export const SelectField = ({
   ...props
 }) => {
   return (
-    <div className="select-field-container">
-      <Select
-        options={options}
-        onChange={(option) => {
-          const selectedValue = isMulti
-            ? option?.map((item) => item[optionValue])
-            : option[optionValue];
-          form.setFieldValue(field.name, selectedValue);
-          if (onChange) {
-            onChange(option);
-          }
-        }}
-        onBlur={field.onBlur}
-        isMulti={isMulti || false}
-        className={className || 'select-field'}
-        closeMenuOnSelect={props.closeMenuOnSelect || !isMulti}
-        isDisabled={isDisabled}
-        inputId={id}
-        optionValue={optionValue}
-        optionLabel={optionLabel}
-        getOptionValue={(option) => option[optionValue]}
-        getOptionLabel={(option) => option[optionLabel]}
-        {...props}
-      />
-    </div>
+    <>
+      <div class="select-field-container">
+        <Select
+          options={options}
+          onChange={(option) => {
+            const selectedValue = isMulti
+              ? option?.map((item) => item[optionValue])
+              : option[optionValue];
+            form.setFieldValue(field.name, selectedValue);
+            if (onChange) {
+              onChange(option);
+            }
+          }}
+          onBlur={field.onBlur}
+          isMulti={isMulti || false}
+          className={className || 'select-field'}
+          closeMenuOnSelect={props.closeMenuOnSelect || !isMulti}
+          isDisabled={isDisabled}
+          inputId={id}
+          optionValue={optionValue}
+          optionLabel={optionLabel}
+          getOptionValue={(option) => option[optionValue]}
+          getOptionLabel={(option) => option[optionLabel]}
+          {...props}
+        />
+      </div>
+    </>
   );
 };
 
