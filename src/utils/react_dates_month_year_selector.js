@@ -1,8 +1,9 @@
 import React from 'react';
 import moment from 'moment';
-import Select from 'react-select';
-import { find } from 'lodash';
+import { find, range } from 'lodash';
 
+// TODO: TT-9328 rework this component and go back to using react-select for the
+// month and year selectors
 export const RenderMonthElement = ({
   month,
   onMonthSelect,
@@ -10,52 +11,29 @@ export const RenderMonthElement = ({
   startYear,
   endYear,
 }) => {
-  const monthOptions = moment.months().map((label, value) => {
-    return { label, value };
-  });
-
-  let yearOptions = [];
-  for (
-    let i = Math.min(startYear, month.year());
-    i <= Math.max(endYear, month.year());
-    i++
-  ) {
-    yearOptions.push({ label: i, value: i });
-  }
-
-  const theme = (theme) => ({
-    ...theme,
-    spacing: {
-      ...theme.spacing,
-      controlHeight: 33,
-      baseUnit: 1,
-    },
-  });
-
   return (
     <div class="month_year_select">
-      <Select
-        options={monthOptions}
+      <select
         className="month_select"
-        onChange={(e) => onMonthSelect(month, e.value)}
-        value={find(monthOptions, ['value', month.month()])}
-        maxMenuHeight={240}
-        theme={theme}
-        styles={{
-          menuPortal: (provided) => ({ ...provided, zIndex: 999 }),
-        }}
-      />
-      <Select
-        options={yearOptions}
+        onChange={(e) => onMonthSelect(month, e.target.value)}
+        value={month.month()}
+      >
+        {moment.months().map((label, value) => {
+          return <option value={value}>{label}</option>;
+        })}
+      </select>
+      <select
         className="year_select"
-        onChange={(e) => onYearSelect(month, e.value)}
-        value={find(yearOptions, ['value', month.year()])}
-        maxMenuHeight={240}
-        theme={theme}
-        styles={{
-          menuPortal: (provided) => ({ ...provided, zIndex: 999 }),
-        }}
-      />
+        onChange={(e) => onYearSelect(month, e.target.value)}
+        value={month.year()}
+      >
+        {range(
+          Math.min(startYear, month.year()),
+          Math.max(endYear, month.year())
+        ).map((year) => (
+          <option value={year}>{year}</option>
+        ))}
+      </select>
     </div>
   );
 };
