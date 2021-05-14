@@ -6,7 +6,6 @@
   "module": "dist/index.esm.js",
   "scripts": {
     "build": "rollup -c --environment BUILD:production",
-    "test": "yarn run test",
     "storybook": "install-self-peers -- --ignore-scripts && start-storybook -p 6006",
     "build-storybook": "build-storybook"
   },
