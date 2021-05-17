@@ -13,5 +13,15 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: ${{ matrix.node }}
-      - run: npm install -g npm@7
-      - run: npm ci
+      - name: Install yarn
+        uses: borales/actions-yarn@v2.3.0
+        with:
+          cmd: install
+      - name: Build yarn
+        uses: borales/actions-yarn@v2.3.0
+        with:
+          cmd: build
+      - name: Install peerDependencies
+        uses: borales/actions-yarn@v2.3.0
+        with:
+          cmd: install-peers

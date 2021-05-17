@@ -13,7 +13,18 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: '14.x'
-      - run: npm ci
+      - name: Install yarn
+        uses: borales/actions-yarn@v2.3.0
+        with:
+          cmd: install
+      - name: Build yarn
+        uses: borales/actions-yarn@v2.3.0
+        with:
+          cmd: build
+      - name: Install peerDependencies
+        uses: borales/actions-yarn@v2.3.0
+        with:
+          cmd: install-peers
 
   release:
     needs: build
@@ -27,7 +38,7 @@ jobs:
         run: |
           # Get version from github ref (remove 'refs/tags/' and prefix 'v')
           version="${GITHUB_REF#refs/tags/v}"
-          npx changelog-parser CHANGELOG.md | jq -cr ".versions | .[] | select(.version == \"$version\") | .body" > ${{ github.workflow }}-CHANGELOG.txt
+          yarn dlx changelog-parser CHANGELOG.md | jq -cr ".versions | .[] | select(.version == \"$version\") | .body" > ${{ github.workflow }}-CHANGELOG.txt
 
       - name: Release
         uses: softprops/action-gh-release@v1
