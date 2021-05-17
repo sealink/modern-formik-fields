@@ -1,0 +1,27 @@
+name: Build and Test
+on: [push, pull_request]
+jobs:
+  test:
+    strategy:
+      matrix:
+        node: [ '10', '12', '14' ]
+    name: Node ${{ matrix.node }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Setup node
+        uses: actions/setup-node@v2
+        with:
+          node-version: ${{ matrix.node }}
+      - name: Install yarn
+        uses: borales/actions-yarn@v2.3.0
+        with:
+          cmd: install
+      - name: Build yarn
+        uses: borales/actions-yarn@v2.3.0
+        with:
+          cmd: build
+      - name: Install peerDependencies
+        uses: borales/actions-yarn@v2.3.0
+        with:
+          cmd: install-peers
