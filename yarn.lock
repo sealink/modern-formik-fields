@@ -1972,19 +1972,6 @@
     qs "^6.10.0"
     telejson "^5.1.0"
 
-"@storybook/channel-postmessage@6.3.0":
-  version "6.3.0"
-  resolved "https://registry.yarnpkg.com/@storybook/channel-postmessage/-/channel-postmessage-6.3.0.tgz#96e7aea034ec1c4f397323ab7923eaa80d017324"
-  integrity sha512-q7FeNWIIrvZxycIMBscqahFLygxAa2L4eJ9oxZFF9zJpSV80bxDalMou3Uo7RvDJFrAeHCanF1Y7bnEDMus4yg==
-  dependencies:
-    "@storybook/channels" "6.3.0"
-    "@storybook/client-logger" "6.3.0"
-    "@storybook/core-events" "6.3.0"
-    core-js "^3.8.2"
-    global "^4.4.0"
-    qs "^6.10.0"
-    telejson "^5.3.2"
-
 "@storybook/channel-postmessage@6.3.1":
   version "6.3.1"
   resolved "https://registry.yarnpkg.com/@storybook/channel-postmessage/-/channel-postmessage-6.3.1.tgz#a255f89b8fdac62f26b20eec6e95e432db25b2a6"
@@ -2025,16 +2012,17 @@
     ts-dedent "^2.0.0"
     util-deprecate "^1.0.2"
 
-"@storybook/cli@6.2.9":
-  version "6.2.9"
-  resolved "https://registry.yarnpkg.com/@storybook/cli/-/cli-6.2.9.tgz#3c89bce29bcf219290f0c18dacbfbf3282b614f5"
-  integrity sha512-Y2uDDc5Lkr6aWqIG+McOpzkO40RoXM0Pm5JdzzaIamUE++ub1BYv/hmlkre3zOGouloKfXxORn8dafMqN2MG3Q==
+"@storybook/cli@6.3.1":
+  version "6.3.1"
+  resolved "https://registry.yarnpkg.com/@storybook/cli/-/cli-6.3.1.tgz#e038da68c2964bbf3b1568c5cc110f891483b78a"
+  integrity sha512-0iTZIwqbtwtjwZHW6ouOfu6Gr7CDSnz6klhAYnmq577YJw9+uPHfoqgPl4GwoeWMLnfc481HWiNoNA728ZGtCQ==
   dependencies:
     "@babel/core" "^7.12.10"
     "@babel/preset-env" "^7.12.11"
-    "@storybook/codemod" "6.2.9"
-    "@storybook/node-logger" "6.2.9"
+    "@storybook/codemod" "6.3.1"
+    "@storybook/node-logger" "6.3.1"
     "@storybook/semver" "^7.3.2"
+    boxen "^4.2.0"
     chalk "^4.1.0"
     commander "^6.2.1"
     core-js "^3.8.2"
@@ -2053,6 +2041,7 @@
     read-pkg-up "^7.0.1"
     shelljs "^0.8.4"
     strip-json-comments "^3.0.1"
+    ts-dedent "^2.0.0"
     update-notifier "^5.0.1"
 
 "@storybook/client-api@6.2.9":
@@ -2065,30 +2054,6 @@
     "@storybook/channels" "6.2.9"
     "@storybook/client-logger" "6.2.9"
     "@storybook/core-events" "6.2.9"
-    "@storybook/csf" "0.0.1"
-    "@types/qs" "^6.9.5"
-    "@types/webpack-env" "^1.16.0"
-    core-js "^3.8.2"
-    global "^4.4.0"
-    lodash "^4.17.20"
-    memoizerific "^1.11.3"
-    qs "^6.10.0"
-    regenerator-runtime "^0.13.7"
-    stable "^0.1.8"
-    store2 "^2.12.0"
-    ts-dedent "^2.0.0"
-    util-deprecate "^1.0.2"
-
-"@storybook/client-api@6.3.0":
-  version "6.3.0"
-  resolved "https://registry.yarnpkg.com/@storybook/client-api/-/client-api-6.3.0.tgz#a285c4b64ec318f360ade31d0c87c22e6e1db2a6"
-  integrity sha512-5HLtYPBOHif9AdzwLCrVbMQdOJ2dne9zv7oTo6Yl0wvLhbr6V/VypoXE0CgFF3hAI2iUquG5z00KlrE8UErC5Q==
-  dependencies:
-    "@storybook/addons" "6.3.0"
-    "@storybook/channel-postmessage" "6.3.0"
-    "@storybook/channels" "6.3.0"
-    "@storybook/client-logger" "6.3.0"
-    "@storybook/core-events" "6.3.0"
     "@storybook/csf" "0.0.1"
     "@types/qs" "^6.9.5"
     "@types/webpack-env" "^1.16.0"
@@ -2151,14 +2116,16 @@
     core-js "^3.8.2"
     global "^4.4.0"
 
-"@storybook/codemod@6.2.9":
-  version "6.2.9"
-  resolved "https://registry.yarnpkg.com/@storybook/codemod/-/codemod-6.2.9.tgz#aa5d9a9de7a7f75c712fbcacd08927da24b278df"
-  integrity sha512-mconOQdwo9PguJQEd1gIUsZDHu0F5UlYXhW+BOgQOxnwDGBXkld2lGOm2v6n9OzuAwkEheHJBt52hz/7wRsi3w==
+"@storybook/codemod@6.3.1":
+  version "6.3.1"
+  resolved "https://registry.yarnpkg.com/@storybook/codemod/-/codemod-6.3.1.tgz#f9364b9bf714001147d9e24fe7283128582de547"
+  integrity sha512-zedUQ+E8A+fDUe5uEKhSHFPouRhKBHliCRvIsJHW58Py7J2B2J2T40Dj8QSeF1g2G9EWMrLTlyxdVkNZl98NQQ==
   dependencies:
+    "@babel/types" "^7.12.11"
     "@mdx-js/mdx" "^1.6.22"
     "@storybook/csf" "0.0.1"
-    "@storybook/node-logger" "6.2.9"
+    "@storybook/csf-tools" "6.3.1"
+    "@storybook/node-logger" "6.3.1"
     core-js "^3.8.2"
     cross-spawn "^7.0.3"
     globby "^11.0.2"
@@ -2191,36 +2158,6 @@
     polished "^4.0.5"
     prop-types "^15.7.2"
     react-colorful "^5.0.1"
-    react-popper-tooltip "^3.1.1"
-    react-syntax-highlighter "^13.5.3"
-    react-textarea-autosize "^8.3.0"
-    regenerator-runtime "^0.13.7"
-    ts-dedent "^2.0.0"
-    util-deprecate "^1.0.2"
-
-"@storybook/components@6.3.0":
-  version "6.3.0"
-  resolved "https://registry.yarnpkg.com/@storybook/components/-/components-6.3.0.tgz#5ad372abd60ee0cb02516f960f514659e3fbf865"
-  integrity sha512-TDcazQAtNgE1E33jKKABx51XpvWyXMcJZFWA0d5wu8XrElrL1PuZqz7dPePoWKGMfTaPYWP6rRyDg4Svv36j+A==
-  dependencies:
-    "@popperjs/core" "^2.6.0"
-    "@storybook/client-logger" "6.3.0"
-    "@storybook/csf" "0.0.1"
-    "@storybook/theming" "6.3.0"
-    "@types/color-convert" "^2.0.0"
-    "@types/overlayscrollbars" "^1.12.0"
-    "@types/react-syntax-highlighter" "11.0.5"
-    color-convert "^2.0.1"
-    core-js "^3.8.2"
-    fast-deep-equal "^3.1.3"
-    global "^4.4.0"
-    lodash "^4.17.20"
-    markdown-to-jsx "^7.1.3"
-    memoizerific "^1.11.3"
-    overlayscrollbars "^1.13.1"
-    polished "^4.0.5"
-    prop-types "^15.7.2"
-    react-colorful "^5.1.2"
     react-popper-tooltip "^3.1.1"
     react-syntax-highlighter "^13.5.3"
     react-textarea-autosize "^8.3.0"
@@ -11399,11 +11336,11 @@ store2@^2.12.0:
   integrity sha512-7t+/wpKLanLzSnQPX8WAcuLCCeuSHoWdQuh9SB3xD0kNOM38DNf+0Oa+wmvxmYueRzkmh6IcdKFtvTa+ecgPDw==
 
 storybook@^6.2.8:
-  version "6.2.9"
-  resolved "https://registry.yarnpkg.com/storybook/-/storybook-6.2.9.tgz#23621039c3d4049a77d529e5cf9a833c2206d34d"
-  integrity sha512-8iBt7XEcw+gPHW07Hkgk5JIbQgtjseijNPo6M8iZdhwfSnJjsj0VJP99VtDWQXvAbYLAjlsitMDE65HYriviFw==
+  version "6.3.1"
+  resolved "https://registry.yarnpkg.com/storybook/-/storybook-6.3.1.tgz#e91216e1e6423d487c5f56a9ee3173734fced591"
+  integrity sha512-ZexJ7mo/RxfmMoz9nlqWUo93JmCur+nXvucXcdDUjw2ETOWVXzLeEwhrTEyEo8NaaZdmpbvu3UvFYtXVXHzNMA==
   dependencies:
-    "@storybook/cli" "6.2.9"
+    "@storybook/cli" "6.3.1"
 
 stream-browserify@^2.0.1:
   version "2.0.2"
