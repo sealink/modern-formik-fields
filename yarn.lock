@@ -1952,15 +1952,15 @@
     ts-dedent "^2.0.0"
     util-deprecate "^1.0.2"
 
-"@storybook/cli@6.3.6":
-  version "6.3.6"
-  resolved "https://registry.yarnpkg.com/@storybook/cli/-/cli-6.3.6.tgz#8e06f32bed5dcf59c699a8739a4ce18abe126d35"
-  integrity sha512-6yCep4yQ1RJBYWZy2Sdf4vOxnE8gYhRjvtgdM7cviwnkvXWfKBRTIUAxgzV6ybR1nuEZ5mcWqcw4aPgGYEXUUA==
+"@storybook/cli@6.3.7":
+  version "6.3.7"
+  resolved "https://registry.yarnpkg.com/@storybook/cli/-/cli-6.3.7.tgz#feed9fca3cf919b750360d84ad4ee9b173167010"
+  integrity sha512-BN9dejTfQvYc+TGDyljmJFdaWNEpr69QXUfjae85vmTh+tY6JqlnMryA5eUjmA990AW1YtDYay7ZE0a1VmqGag==
   dependencies:
     "@babel/core" "^7.12.10"
     "@babel/preset-env" "^7.12.11"
-    "@storybook/codemod" "6.3.6"
-    "@storybook/node-logger" "6.3.6"
+    "@storybook/codemod" "6.3.7"
+    "@storybook/node-logger" "6.3.7"
     "@storybook/semver" "^7.3.2"
     boxen "^4.2.0"
     chalk "^4.1.0"
@@ -2056,16 +2056,16 @@
     core-js "^3.8.2"
     global "^4.4.0"
 
-"@storybook/codemod@6.3.6":
-  version "6.3.6"
-  resolved "https://registry.yarnpkg.com/@storybook/codemod/-/codemod-6.3.6.tgz#fa9712e1b516d77e836446250f6dce92fe863beb"
-  integrity sha512-pyNif3igrpJu0J7U0BptUCNpj+XAsnOJFhBUep7QtbYE3taIH2dGlpGXvyD5kN4zH4Mk/o2KdMp/OxETv1M4hA==
+"@storybook/codemod@6.3.7":
+  version "6.3.7"
+  resolved "https://registry.yarnpkg.com/@storybook/codemod/-/codemod-6.3.7.tgz#9af1e7551c63aeb90a5952b5a743aa6cfb2521db"
+  integrity sha512-+37Z3qJa/9ejcGZxzavG5kIq3WRo2K5F7UpPnH1L8rdN7U4E6W4FrUICzd4IjR3PyzEAS7NEbYYa1se30rCTiA==
   dependencies:
     "@babel/types" "^7.12.11"
     "@mdx-js/mdx" "^1.6.22"
     "@storybook/csf" "0.0.1"
-    "@storybook/csf-tools" "6.3.6"
-    "@storybook/node-logger" "6.3.6"
+    "@storybook/csf-tools" "6.3.7"
+    "@storybook/node-logger" "6.3.7"
     core-js "^3.8.2"
     cross-spawn "^7.0.3"
     globby "^11.0.2"
@@ -11325,11 +11325,11 @@ storybook-addon-outline@^1.4.1:
     ts-dedent "^2.1.1"
 
 storybook@^6.2.8:
-  version "6.3.6"
-  resolved "https://registry.yarnpkg.com/storybook/-/storybook-6.3.6.tgz#d48e2912aa7ae85dc0062aaf387c5130ce91a834"
-  integrity sha512-2y4HJu735S0ED1u1w0je5KVdTZDI6pmjxhsEErziz5uoDGItqzgc0wVVpFEpEuP8eQbKKfqG0G6UuqQeKip/Bg==
+  version "6.3.7"
+  resolved "https://registry.yarnpkg.com/storybook/-/storybook-6.3.7.tgz#33776e29d954990ac65e4a8f88bb495c4cb27fa4"
+  integrity sha512-SO1NPg7bl9/88TjGBCVGPaNcWur9MPjmJzDI/fg949uBT0+zNI3+Bz/7r5L90slsifNVlXrk4DmU5g60sqZPvQ==
   dependencies:
-    "@storybook/cli" "6.3.6"
+    "@storybook/cli" "6.3.7"
 
 stream-browserify@^2.0.1:
   version "2.0.2"
