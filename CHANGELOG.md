@@ -3,6 +3,7 @@
 ## Unreleased
 
 - [TT-9277] Implement github actions
+- [CB-137] Fixed some issues causing console noise
 
 ## 1.0.2
 
