@@ -51,7 +51,7 @@ export const SingleDatePickerField = ({
 
   return (
     <>
-      <div class="single-date-picker-field-container">
+      <div className="single-date-picker-field-container">
         <SingleDatePicker
           id={id}
           numberOfMonths={numberOfMonths}
