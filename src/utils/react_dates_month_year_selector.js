@@ -1,6 +1,6 @@
 import React from 'react';
 import moment from 'moment';
-import { find, range } from 'lodash';
+import { range } from 'lodash';
 
 // TODO: TT-9328 rework this component and go back to using react-select for the
 // month and year selectors
