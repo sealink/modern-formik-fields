@@ -12,6 +12,16 @@ let plugins = [
   postcss({ plugins: [] }),
 ];
 
+const globals = {
+  react: 'React',
+  'react-dom': 'ReactDOM',
+  moment: 'moment',
+  'prop-types': 'PropTypes',
+  lodash: 'lodash',
+  'react-dates': 'react-dates',
+  'react-select': 'Select',
+};
+
 export default {
   input: 'src/fields/index.js',
   plugins: plugins,
@@ -20,6 +30,9 @@ export default {
     'react-dom',
     'formik',
     'react-dates',
+    'react-dates/initialize',
+    'react-dates/lib/css/_datepicker.css',
+    'moment',
     'react-select',
     'lodash',
     'prop-types',
@@ -30,11 +43,13 @@ export default {
       format: 'umd',
       name: 'modern-formik-fields',
       sourcemapFile: true,
+      globals
     },
     {
       file: pkg.module,
       format: 'es',
       sourcemapFile: true,
+      globals
     },
   ],
 };
