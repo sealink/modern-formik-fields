@@ -25,8 +25,9 @@ export const MultiDatePickerField = ({
   startYear,
   endYear,
   renderMonthElement,
-  children,
   value,
+  children,
+  className,
   ...props
 }) => {
   const [focused, setFocused] = useState(null);
@@ -63,9 +64,8 @@ export const MultiDatePickerField = ({
 
   return (
     <>
-      <div class="multi-date-picker-field-container">
+      <div className="multi-date-picker-field-container">
         <DateRangePicker
-          id={id}
           focusedInput={focused}
           onFocusChange={(focusedInput) => {
             setFocused(focusedInput);
@@ -96,7 +96,6 @@ export const MultiDatePickerField = ({
           renderMonthElement={monthElement}
           small={true}
           showClearDates={showClearDates}
-          children={children}
           {...props}
         />
       </div>
@@ -119,8 +118,9 @@ MultiDatePickerField.defaultProps = {
   startYear: moment().year(),
   endYear: moment().year() + 10,
   renderMonthElement: RenderMonthElement,
-  children: [],
   value: {},
+  children: [],
+  className: '',
 };
 
 MultiDatePickerField.propTypes = {
@@ -140,8 +140,9 @@ MultiDatePickerField.propTypes = {
   startYear: PropTypes.number,
   endYear: PropTypes.number,
   renderMonthElement: PropTypes.func,
-  children: PropTypes.array,
   value: PropTypes.object,
+  children: PropTypes.array,
+  className: PropTypes.string,
 };
 
 export default MultiDatePickerField;
