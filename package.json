@@ -1,6 +1,6 @@
 {
   "name": "@sealink/modern-formik-fields",
-  "version": "1.0.2",
+  "version": "1.1.0",
   "description": "A set of components that can be passed to Formik to create useful custom fields.",
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
