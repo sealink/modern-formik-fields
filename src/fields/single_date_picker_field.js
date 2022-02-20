@@ -103,7 +103,7 @@ SingleDatePickerField.defaultProps = {
   startYear: moment().year(),
   endYear: moment().year() + 10,
   renderMonthElement: RenderMonthElement,
-  value: {},
+  value: '',
   children: [],
   className: '',
 };
@@ -124,7 +124,7 @@ SingleDatePickerField.propTypes = {
   startYear: PropTypes.number,
   endYear: PropTypes.number,
   renderMonthElement: PropTypes.func,
-  value: PropTypes.object,
+  value: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
   children: PropTypes.array,
   className: PropTypes.string,
 };
