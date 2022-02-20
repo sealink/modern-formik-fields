@@ -18,7 +18,7 @@ export const SelectField = ({
 }) => {
   return (
     <>
-      <div class="select-field-container">
+      <div className="select-field-container">
         <Select
           options={options}
           onChange={(option) => {
