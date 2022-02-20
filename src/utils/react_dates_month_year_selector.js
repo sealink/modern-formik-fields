@@ -12,7 +12,7 @@ export const RenderMonthElement = ({
   endYear,
 }) => {
   return (
-    <div class="month_year_select">
+    <div className="month_year_select">
       <select
         className="month_select"
         onChange={(e) => onMonthSelect(month, e.target.value)}
