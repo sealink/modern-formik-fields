@@ -1,7 +1,9 @@
 # Modern Formik Fields
 
 ## Unreleased
+
 - [PLAT-89] Github: Dependabot AutoMerge
+- [PLAT-317] Losen peerDependencies; fix issue with classname
 
 ## 1.1.0
 
