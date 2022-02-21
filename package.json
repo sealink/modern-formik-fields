@@ -8,7 +8,8 @@
     "build": "rollup -c --environment BUILD:production",
     "storybook": "install-self-peers -- --ignore-scripts && start-storybook -p 6006",
     "build-storybook": "build-storybook",
-    "install-peers": "install-self-peers -- --ignore-scripts"
+    "install-peers": "install-self-peers -- --ignore-scripts",
+    "prepublish": "yarn run build"
   },
   "repository": {
     "type": "git",
