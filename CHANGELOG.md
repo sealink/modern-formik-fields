@@ -1,5 +1,9 @@
 # Modern Formik Fields
 
+## 1.2.1 Unreleased
+
+- [PLAT-318] Fix deploy with github actions
+
 ## 1.2.0
 
 - [PLAT-89] Github: Dependabot AutoMerge
