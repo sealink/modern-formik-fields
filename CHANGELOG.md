@@ -1,6 +1,6 @@
 # Modern Formik Fields
 
-## 1.2.1 Unreleased
+## 1.3.0
 
 - [PLAT-318] Fix deploy with github actions
 
