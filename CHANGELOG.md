@@ -1,6 +1,6 @@
 # Modern Formik Fields
 
-## 1.3.1 Unreleased
+## 1.3.1
 
 - [PLAT-319] Fix automated build including dist files
 
